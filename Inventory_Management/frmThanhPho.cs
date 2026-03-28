@@ -11,16 +11,12 @@ using System.Data.SqlClient;
 
 namespace Inventory_Management
 {
-    public partial class frmNhanVien : Form
+    public partial class frmThanhPho : Form
     {
         // Chuỗi kết nối 
         string strConnectionString = "Data Source=DESKTOP-2DJMJB9;Initial Catalog=inventory_management_db;Integrated Security = True";
         // Đối tượng kết nối 
         SqlConnection conn = null;
-        // Đối tượng đưa dữ liệu vào DataTable dtNhanVien 
-        SqlDataAdapter daNhanVien = null;
-        // Đối tượng hiển thị dữ liệu lên Form 
-        DataTable dtNhanVien = null;
 
         // Đối tượng đưa dữ liệu vào DataTable dtThanhPho 
         SqlDataAdapter daThanhPho = null;
@@ -30,12 +26,12 @@ namespace Inventory_Management
         // Khai báo biến kiểm tra việc Thêm hay Sửa dữ liệu 
         bool Them;
 
-        public frmNhanVien()
+        public frmThanhPho()
         {
             InitializeComponent();
         }
 
-        private void frmNhanVien_Load(object sender, EventArgs e)
+        private void frmThanhPho_Load(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -57,30 +53,12 @@ namespace Inventory_Management
                 dtThanhPho = new DataTable();
                 dtThanhPho.Clear();
                 daThanhPho.Fill(dtThanhPho);
-
-                // Đưa dữ liệu lên ComboBox trong DataGridView  
-                (dgvNHANVIEN.Columns["ThanhPho"] as
-                    DataGridViewComboBoxColumn).DataSource = dtThanhPho;
-                (dgvNHANVIEN.Columns["ThanhPho"] as
-                    DataGridViewComboBoxColumn).DisplayMember = "TenThanhPho"; //thông tin hiện ra trên List để người dùng chọn
-                (dgvNHANVIEN.Columns["ThanhPho"] as
-                    DataGridViewComboBoxColumn).ValueMember = "ThanhPho"; //thông tin sẽ lưu vào DB dựa vào giá trị mà người dùng đã chọn
-
-                // Vận chuyển dữ liệu vào DataTable dtNhanVien 
-                daNhanVien = new SqlDataAdapter("SELECT * FROM NHANVIEN", conn);
-                dtNhanVien = new DataTable();
-                dtNhanVien.Clear();
-                daNhanVien.Fill(dtNhanVien);
                 // Đưa dữ liệu lên DataGridView 
-                dgvNHANVIEN.DataSource = dtNhanVien;
+                dgvTHANHPHO.DataSource = dtThanhPho;
 
                 // Xóa trống các đối tượng trong Panel 
-                this.txtMaNV.ResetText();
-                this.txtHoTen.ResetText();
-                this.txtNgayNV.ResetText();
-                //XÓA TRỐNG COMBOBOX
-                this.cbThanhPho.SelectedIndex = -1;
-                this.txtDienThoai.ResetText();
+                this.txtThanhPho.ResetText();
+                this.txtTenThanhPho.ResetText();
 
                 // Không cho thao tác trên các nút Lưu / Hủy 
                 this.btnLuu.Enabled = false;
@@ -94,7 +72,7 @@ namespace Inventory_Management
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Không lấy được nội dung trong table NHANVIEN. Lỗi rồi!!! " + ex.Message);
+                MessageBox.Show("Không lấy được nội dung trong table THANHPHO. Lỗi rồi!!! " + ex.Message);
             }
         }
 
@@ -104,10 +82,8 @@ namespace Inventory_Management
             Them = true;
 
             // Xóa trống các đối tượng trong Panel 
-            this.txtMaNV.ResetText();
-            this.txtHoTen.ResetText();
-            this.txtNgayNV.ResetText();
-            this.txtDienThoai.ResetText();
+            this.txtThanhPho.ResetText();
+            this.txtTenThanhPho.ResetText();
 
             // Cho thao tác trên các nút Lưu / Hủy / Panel 
             this.btnLuu.Enabled = true;
@@ -119,13 +95,8 @@ namespace Inventory_Management
             this.btnXoa.Enabled = false;
             this.btnThoat.Enabled = false;
 
-            // Đưa dữ liệu lên ComboBox 
-            this.cbThanhPho.DataSource = dtThanhPho;
-            this.cbThanhPho.DisplayMember = "TenThanhPho";
-            this.cbThanhPho.ValueMember = "ThanhPho";
-
             // Đưa con trỏ đến TextField txtMaNV
-            this.txtMaNV.Focus();
+            this.txtThanhPho.Focus();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -133,27 +104,16 @@ namespace Inventory_Management
             // Kích hoạt biến Sửa 
             Them = false;
 
-            // Đưa dữ liệu lên ComboBox 
-            this.cbThanhPho.DataSource = dtThanhPho;
-            this.cbThanhPho.DisplayMember = "TenThanhPho";
-            this.cbThanhPho.ValueMember = "ThanhPho";
-
             // Cho phép thao tác trên Panel 
             this.panel.Enabled = true;
 
             // Thứ tự dòng hiện hành 
-            int r = dgvNHANVIEN.CurrentCell.RowIndex;
+            int r = dgvTHANHPHO.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel 
-            this.txtMaNV.Text =
-            dgvNHANVIEN.Rows[r].Cells[0].Value.ToString();
-            this.txtHoTen.Text =
-            dgvNHANVIEN.Rows[r].Cells[1].Value.ToString();
-            this.txtNgayNV.Text =
-            dgvNHANVIEN.Rows[r].Cells[2].Value.ToString();
-            this.cbThanhPho.SelectedValue =
-            dgvNHANVIEN.Rows[r].Cells[3].Value.ToString();
-            this.txtDienThoai.Text =
-            dgvNHANVIEN.Rows[r].Cells[4].Value.ToString();
+            this.txtThanhPho.Text =
+            dgvTHANHPHO.Rows[r].Cells[0].Value.ToString();
+            this.txtTenThanhPho.Text =
+            dgvTHANHPHO.Rows[r].Cells[1].Value.ToString();
 
             // Cho thao tác trên các nút Lưu / Hủy / Panel 
             this.btnLuu.Enabled = true;
@@ -165,8 +125,8 @@ namespace Inventory_Management
             this.btnXoa.Enabled = false;
             this.btnThoat.Enabled = false;
 
-            // Đưa con trỏ đến TextField txtMaNV          
-            this.txtMaNV.Focus();
+            // Đưa con trỏ đến TextField txtThanhPho           
+            this.txtThanhPho.Focus();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -184,12 +144,9 @@ namespace Inventory_Management
                     cmd.CommandType = CommandType.Text;
 
                     // Lệnh Insert InTo 
-                    cmd.CommandText = "Insert Into NhanVien Values('" +
-                        this.txtMaNV.Text + "', N'" + 
-                        this.txtHoTen.Text + "','" +
-                        this.txtNgayNV.Text + "','" +
-                        this.cbThanhPho.SelectedValue.ToString() + "','" +
-                        this.txtDienThoai.Text + "')";
+                    cmd.CommandText = "Insert Into ThanhPho Values('" +
+                        this.txtThanhPho.Text + "', N'" + 
+                        this.txtTenThanhPho.Text + "')";
 
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
@@ -215,17 +172,14 @@ namespace Inventory_Management
                     cmd.CommandType = CommandType.Text;
 
                     // Thứ tự dòng hiện hành 
-                    int r = dgvNHANVIEN.CurrentCell.RowIndex;
-                    // MaNV hiện hành 
-                    string strMANV =
-                    dgvNHANVIEN.Rows[r].Cells[0].Value.ToString();
+                    int r = dgvTHANHPHO.CurrentCell.RowIndex;
+                    // ThanhPho hiện hành 
+                    string strThanhPho =
+                    dgvTHANHPHO.Rows[r].Cells[0].Value.ToString();
 
                     // Câu lệnh SQL 
-                    cmd.CommandText = System.String.Concat("Update NhanVien Set HoTen= N'" + 
-                        this.txtHoTen.Text.ToString() + "', NgayNV = '" +
-                        this.txtNgayNV.Text.ToString() + "', ThanhPho = '" +
-                        this.cbThanhPho.SelectedValue.ToString() + "', DienThoai = '" +
-                        this.txtDienThoai.Text.ToString() + "' Where MaNV = '" + strMANV + "'");
+                    cmd.CommandText = System.String.Concat("Update ThanhPho Set TenThanhPho= N'" + 
+                        this.txtTenThanhPho.Text.ToString() + "' Where ThanhPho = '" + strThanhPho + "'");
 
                     // Cập nhật 
                     cmd.CommandType = CommandType.Text;
@@ -249,12 +203,9 @@ namespace Inventory_Management
         private void btnHuy_Click(object sender, EventArgs e)
         {
             // Xóa trống các đối tượng trong Panel 
-            this.txtMaNV.ResetText();
-            this.txtHoTen.ResetText();
-            this.txtNgayNV.ResetText();
-            //XÓA TRỐNG COMBOBOX
-            this.cbThanhPho.SelectedIndex = -1;
-            this.txtDienThoai.ResetText();
+            this.txtThanhPho.ResetText();
+            this.txtTenThanhPho.ResetText();
+      
             // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát 
             this.btnThem.Enabled = true;
             this.btnSua.Enabled = true;
@@ -279,13 +230,13 @@ namespace Inventory_Management
                 cmd.CommandType = CommandType.Text;
 
                 // Lấy thứ tự record hiện hành 
-                int r = dgvNHANVIEN.CurrentCell.RowIndex;
-                // Lấy MaNV của record hiện hành 
-                string strMANV =
-                dgvNHANVIEN.Rows[r].Cells[0].Value.ToString();
+                int r = dgvTHANHPHO.CurrentCell.RowIndex;
+                // Lấy ThanhPho của record hiện hành 
+                string strThanhPho =
+                dgvTHANHPHO.Rows[r].Cells[0].Value.ToString();
 
                 // Viết câu lệnh SQL 
-                cmd.CommandText = System.String.Concat("Delete From NhanVien Where MaNV = '" + strMANV + "'");
+                cmd.CommandText = System.String.Concat("Delete From ThanhPho Where ThanhPho = '" + strThanhPho + "'");
                 cmd.CommandType = CommandType.Text;
 
                 // Thực hiện câu lệnh SQL

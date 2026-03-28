@@ -16,7 +16,19 @@ namespace Inventory_Management
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmKhoHang());
+
+            frmDangNhap login = new frmDangNhap();
+            // Hiện login dưới dạng Dialog
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                // Nếu nhấn nút Đăng nhập (OK) thì mới chạy Form chính
+                Application.Run(new frmSanPham());
+            }
+            else
+            {
+                // Nếu nhấn Thoát (Cancel) hoặc đóng X, ứng dụng kết thúc tại đây luôn
+                Application.Exit();
+            }
         }
     }
 }

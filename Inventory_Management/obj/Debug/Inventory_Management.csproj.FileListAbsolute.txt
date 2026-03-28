@@ -2,9 +2,13 @@ D:\C#_Solution\GP_Inventory_Management\Inventory_Management\bin\Debug\Inventory_
 D:\C#_Solution\GP_Inventory_Management\Inventory_Management\bin\Debug\Inventory_Management.exe
 D:\C#_Solution\GP_Inventory_Management\Inventory_Management\bin\Debug\Inventory_Management.pdb
 D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.csproj.AssemblyReference.cache
-D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.frmKhoHang.resources
 D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.Properties.Resources.resources
 D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.csproj.GenerateResource.cache
 D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.csproj.CoreCompileInputs.cache
 D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.exe
 D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.pdb
+D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.frmSanPham.resources
+D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.frmNhaCungCap.resources
+D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.frmNhanVien.resources
+D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.frmThanhPho.resources
+D:\C#_Solution\GP_Inventory_Management\Inventory_Management\obj\Debug\Inventory_Management.frmDangNhap.resources
