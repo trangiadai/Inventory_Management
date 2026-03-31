@@ -26,7 +26,7 @@ namespace Inventory_Management
             }
             else
             {
-                // Nếu nhấn Thoát (Cancel) hoặc đóng X, ứng dụng kết thúc tại đây luôn
+                // Nếu nhấn Thoát (Cancel) hoặc đóng X, ứng dụng kết thúc
                 Application.Exit();
             }
         }

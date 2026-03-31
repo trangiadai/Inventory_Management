@@ -52,6 +52,9 @@
             this.txtTenCty = new System.Windows.Forms.TextBox();
             this.cbThanhPho = new System.Windows.Forms.ComboBox();
             this.txtMaNCC = new System.Windows.Forms.TextBox();
+            this.btnQLTP = new System.Windows.Forms.Button();
+            this.btnQLSP = new System.Windows.Forms.Button();
+            this.btnQLNV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNHACUNGCAP)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +74,7 @@
             this.dgvNHACUNGCAP.ReadOnly = true;
             this.dgvNHACUNGCAP.RowHeadersWidth = 51;
             this.dgvNHACUNGCAP.RowTemplate.Height = 24;
-            this.dgvNHACUNGCAP.Size = new System.Drawing.Size(1226, 262);
+            this.dgvNHACUNGCAP.Size = new System.Drawing.Size(1226, 230);
             this.dgvNHACUNGCAP.TabIndex = 0;
             // 
             // MaNCC
@@ -123,9 +126,9 @@
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(12, 498);
+            this.btnReload.Location = new System.Drawing.Point(12, 463);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(104, 52);
+            this.btnReload.Size = new System.Drawing.Size(95, 47);
             this.btnReload.TabIndex = 1;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -133,9 +136,9 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(155, 498);
+            this.btnThem.Location = new System.Drawing.Point(12, 528);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(104, 52);
+            this.btnThem.Size = new System.Drawing.Size(95, 47);
             this.btnThem.TabIndex = 2;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -143,9 +146,9 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(302, 498);
+            this.btnSua.Location = new System.Drawing.Point(185, 463);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(104, 52);
+            this.btnSua.Size = new System.Drawing.Size(91, 47);
             this.btnSua.TabIndex = 3;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -153,9 +156,9 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(447, 498);
+            this.btnLuu.Location = new System.Drawing.Point(185, 528);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(104, 52);
+            this.btnLuu.Size = new System.Drawing.Size(91, 47);
             this.btnLuu.TabIndex = 4;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -163,9 +166,9 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(597, 498);
+            this.btnHuy.Location = new System.Drawing.Point(355, 463);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(104, 52);
+            this.btnHuy.Size = new System.Drawing.Size(99, 47);
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
@@ -173,9 +176,9 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(984, 498);
+            this.btnXoa.Location = new System.Drawing.Point(355, 528);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(104, 52);
+            this.btnXoa.Size = new System.Drawing.Size(99, 47);
             this.btnXoa.TabIndex = 6;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -292,11 +295,44 @@
             this.txtMaNCC.Size = new System.Drawing.Size(175, 28);
             this.txtMaNCC.TabIndex = 0;
             // 
+            // btnQLTP
+            // 
+            this.btnQLTP.Location = new System.Drawing.Point(769, 465);
+            this.btnQLTP.Name = "btnQLTP";
+            this.btnQLTP.Size = new System.Drawing.Size(135, 85);
+            this.btnQLTP.TabIndex = 14;
+            this.btnQLTP.Text = "Quản Lý \r\nDanh Sách \r\nThành Phố";
+            this.btnQLTP.UseVisualStyleBackColor = true;
+            this.btnQLTP.Click += new System.EventHandler(this.btnQLTP_Click);
+            // 
+            // btnQLSP
+            // 
+            this.btnQLSP.Location = new System.Drawing.Point(588, 523);
+            this.btnQLSP.Name = "btnQLSP";
+            this.btnQLSP.Size = new System.Drawing.Size(134, 52);
+            this.btnQLSP.TabIndex = 13;
+            this.btnQLSP.Text = "Quản Lý\r\nSản Phẩm\r\n";
+            this.btnQLSP.UseVisualStyleBackColor = true;
+            this.btnQLSP.Click += new System.EventHandler(this.btnQLSP_Click);
+            // 
+            // btnQLNV
+            // 
+            this.btnQLNV.Location = new System.Drawing.Point(588, 454);
+            this.btnQLNV.Name = "btnQLNV";
+            this.btnQLNV.Size = new System.Drawing.Size(134, 53);
+            this.btnQLNV.TabIndex = 12;
+            this.btnQLNV.Text = "Quán Lý\r\nNhân Viên";
+            this.btnQLNV.UseVisualStyleBackColor = true;
+            this.btnQLNV.Click += new System.EventHandler(this.btnQLNV_Click);
+            // 
             // frmNhaCungCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1250, 587);
+            this.Controls.Add(this.btnQLTP);
+            this.Controls.Add(this.btnQLSP);
+            this.Controls.Add(this.btnQLNV);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXoa);
@@ -309,6 +345,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmNhaCungCap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhà Cung Cấp";
             this.Load += new System.EventHandler(this.frmNhaCungCap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNHACUNGCAP)).EndInit();
@@ -344,5 +381,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewComboBoxColumn ThanhPho;
         private System.Windows.Forms.DataGridViewTextBoxColumn DienThoai;
+        private System.Windows.Forms.Button btnQLTP;
+        private System.Windows.Forms.Button btnQLSP;
+        private System.Windows.Forms.Button btnQLNV;
     }
 }

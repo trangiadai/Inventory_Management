@@ -64,9 +64,9 @@
             this.txtTenSP = new System.Windows.Forms.TextBox();
             this.cbNhaCungCap = new System.Windows.Forms.ComboBox();
             this.txtMaSP = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnQLNCC = new System.Windows.Forms.Button();
+            this.btnQLNV = new System.Windows.Forms.Button();
+            this.btnQLTP = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSANPHAM)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -423,41 +423,44 @@
             this.txtMaSP.Size = new System.Drawing.Size(130, 28);
             this.txtMaSP.TabIndex = 0;
             // 
-            // button1
+            // btnQLNCC
             // 
-            this.button1.Location = new System.Drawing.Point(643, 465);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 42);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnQLNCC.Location = new System.Drawing.Point(594, 454);
+            this.btnQLNCC.Name = "btnQLNCC";
+            this.btnQLNCC.Size = new System.Drawing.Size(134, 53);
+            this.btnQLNCC.TabIndex = 9;
+            this.btnQLNCC.Text = "Quán Lý\r\nNhà Cung Cấp";
+            this.btnQLNCC.UseVisualStyleBackColor = true;
+            this.btnQLNCC.Click += new System.EventHandler(this.btnQLNCC_Click);
             // 
-            // button2
+            // btnQLNV
             // 
-            this.button2.Location = new System.Drawing.Point(643, 523);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 42);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnQLNV.Location = new System.Drawing.Point(594, 523);
+            this.btnQLNV.Name = "btnQLNV";
+            this.btnQLNV.Size = new System.Drawing.Size(134, 52);
+            this.btnQLNV.TabIndex = 10;
+            this.btnQLNV.Text = "Quản Lý\r\nNhân Viên";
+            this.btnQLNV.UseVisualStyleBackColor = true;
+            this.btnQLNV.Click += new System.EventHandler(this.btnQLNV_Click);
             // 
-            // button3
+            // btnQLTP
             // 
-            this.button3.Location = new System.Drawing.Point(785, 465);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 42);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnQLTP.Location = new System.Drawing.Point(775, 465);
+            this.btnQLTP.Name = "btnQLTP";
+            this.btnQLTP.Size = new System.Drawing.Size(135, 85);
+            this.btnQLTP.TabIndex = 11;
+            this.btnQLTP.Text = "Quản Lý \r\nDanh Sách \r\nThành Phố";
+            this.btnQLTP.UseVisualStyleBackColor = true;
+            this.btnQLTP.Click += new System.EventHandler(this.btnQLTP_Click);
             // 
             // frmSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1250, 587);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnQLTP);
+            this.Controls.Add(this.btnQLNV);
+            this.Controls.Add(this.btnQLNCC);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXoa);
@@ -470,6 +473,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSanPham";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kho Hàng";
             this.Load += new System.EventHandler(this.frmSanPham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSANPHAM)).EndInit();
@@ -517,8 +521,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelMaSP;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnQLNCC;
+        private System.Windows.Forms.Button btnQLNV;
+        private System.Windows.Forms.Button btnQLTP;
     }
 }

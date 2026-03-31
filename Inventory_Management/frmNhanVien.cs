@@ -307,13 +307,13 @@ namespace Inventory_Management
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            // Khai báo biến traloi 
-            DialogResult traloi;
-            // Hiện hộp thoại hỏi đáp 
-            traloi = MessageBox.Show("Chắc không?", "Trả lời",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            // Kiểm tra có nhắp chọn nút Ok không? 
-            if (traloi == DialogResult.OK) Application.Exit();
+            DialogResult traloi = MessageBox.Show("Bạn muốn thoát toàn bộ chương trình?", "Xác nhận",
+                                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (traloi == DialogResult.Yes)
+            {
+                // Thoát ngay lập tức và hủy mọi Form đang ẩn
+                Environment.Exit(0);
+            }
         }
 
         private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
@@ -322,6 +322,47 @@ namespace Inventory_Management
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Chặn ký tự đó lại, không cho hiện lên TextBox
+            }
+        }
+
+        private void btnQLNCC_Click(object sender, EventArgs e)
+        {
+            frmNhaCungCap fNCC = new frmNhaCungCap();
+
+            // 1. Ẩn form hiện tại
+            this.Hide();
+
+            // 2. Mở form con (Chương trình dừng tại đây đợi fNCC đóng)
+            fNCC.ShowDialog();
+
+            // 3. Khi fNCC đóng (do bấm X), code chạy đến đây:
+            // Kiểm tra nếu Form chính chưa bị hủy thì mới hiện lại
+            if (!this.IsDisposed)
+            {
+                this.Show();
+            }
+
+        }
+
+        private void btnQLSP_Click(object sender, EventArgs e)
+        {
+            frmSanPham fSP = new frmSanPham();
+            this.Hide();
+            fSP.ShowDialog();
+            if (!this.IsDisposed)
+            {
+                this.Show();
+            }
+        }
+
+        private void btnQLTP_Click(object sender, EventArgs e)
+        {
+            frmThanhPho fTP = new frmThanhPho();
+            this.Hide();
+            fTP.ShowDialog();
+            if (!this.IsDisposed)
+            {
+                this.Show();
             }
         }
     }
